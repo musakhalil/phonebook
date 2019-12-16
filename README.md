@@ -26,6 +26,7 @@ Connector/ODBC   | 5.3.14
   * CREATE database phbk_phonebook;
   * USE phbk_phonebook;
   * CREATE TABLE phbk_contacts( ID int not null auto_increment, fName varchar(50), lName varchar(50), Phone varchar(20), primary key(ID));
+* Edit backend/api/db.php variables (DB_USER,DB_PASS) and set them to your MySQL user that has access to the created database locally then save the file
 * Run 'cd frontend' to enter created project directory
 * Run 'npm install' to get node_modules files required for the project
 * Run 'ng serve' for a dev server. Navigate to the localhost link shown in the cmd to access the application
