@@ -1,0 +1,91 @@
+<header>
+    <div class="container contacts-header">
+      <div class="row justify-content-between align-items-center">
+          <div class="col-8 col-sm-9">
+              <h1 class="title">Phonebook</h1>
+          </div>
+          <div class="col-4 col-sm-3 text-right">      
+              <button type="button" class="add-btn" (click)="openModal(createModal)">+ Add New</button>
+          </div>
+      </div>
+    </div>
+</header>
+<section id="information">
+    <div class="container contacts">
+      <div class="row">
+          <div class="col-sm-12 contact-listing" *ngFor="let contact of contacts">
+            <div>
+                <span class="initials">
+                  {{contact.fName.charAt(0)}}{{contact.lName.charAt(0)}}
+                </span>
+                <a [routerLink]="['/contact-details', contact.ID]" class="contact-listing-name">{{ contact.fName }} {{ contact.lName }}</a>
+            </div>
+            <a href="tel:{{contact.Number}}"><img src="/assets/images/call.png"></a>
+          </div>
+      </div>
+    </div>
+</section>
+<ng-template #createModal>
+  <div class="modal-header">
+    <h6 class="modal-title pull-left">Add Contact</h6>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form #f="ngForm" onsubmit="return f.form.valid;">
+      <div class="form-field">
+        <small class="label"><strong>First Name</strong></small>
+        <input type="text" name="fName" [(ngModel)] = "selectedContact.fName" pattern="^[a-zA-Z]+$" #fName="ngModel" required>
+        <div *ngIf="fName.invalid && (fName.dirty || fName.touched)"
+            class="alert alert-danger">
+          
+          <div *ngIf="fName.errors.required">
+            First Name is required
+          </div>
+          <div *ngIf="fName.errors.pattern">
+            Only letters allowed
+          </div>
+
+        </div>
+      </div>
+      <div class="form-field">
+        <small class="label"><strong>Last Name</strong></small>
+        <input type="text" name="lName" [(ngModel)] = "selectedContact.lName" pattern="^[a-zA-Z]+$" #lName="ngModel" required>
+        <div *ngIf="lName.invalid && (lName.dirty || lName.touched)"
+            class="alert alert-danger">
+
+          <div *ngIf="lName.errors.required">
+            Last Name is required
+          </div>
+          <div *ngIf="lName.errors.pattern">
+            Only letters allowed
+          </div>
+
+        </div>
+      </div>
+      <div class="form-field">
+        <small class="label"><strong>Phone Number</strong></small>
+        <input type="tel" name="Number" [(ngModel)] = "selectedContact.Number" minlength="10" pattern="^[0-9]+$" #Number="ngModel" required>
+        <div *ngIf="Number.invalid && (Number.dirty || Number.touched)"
+            class="alert alert-danger">
+
+          <div *ngIf="Number.errors.required">
+            Phone Number is required
+          </div>
+          <div *ngIf="Number.errors.minlength">
+            Phone Number must be at least 10 characters long
+          </div>
+          <div *ngIf="Number.errors.pattern">
+            Only numbers allowed
+          </div>
+
+        </div>
+      </div>
+      <div *ngIf="!f.form.valid" class="alert alert-danger">Please make sure your form is filled correctly before adding a contact!</div>
+      <div class="form-field submit-div">
+        <input type="button" [disabled]="!f.form.valid" (click)="createContact(f);modalRef.hide();" value="Create Contact">
+      </div>      
+    </form>
+  </div>
+</ng-template>
