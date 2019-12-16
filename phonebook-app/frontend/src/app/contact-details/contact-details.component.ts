@@ -17,6 +17,7 @@ export class ContactDetailsComponent implements OnInit {
   contact: Contact;
   contactID: number;
   selectedContact:  Contact  = { ID :  null , fName: null, lName: null, Number: null};
+  initials : string;
   isEdit = false;
   modalRef: BsModalRef;
 
@@ -31,6 +32,7 @@ export class ContactDetailsComponent implements OnInit {
     this.apiService.getContact(this.contactID).subscribe((contact: Contact[])=>{
       this.contact = contact[0];
       this.selectContact(this.contact);
+      this.initials = this.contact.fName.charAt(0) + this.contact.lName.charAt(0);
     });
   }
   UpdateContact(form) {

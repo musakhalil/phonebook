@@ -19,7 +19,7 @@
         <div class="col-sm-12 p-0" *ngIf="!isEdit; else editBlock">
           <div class="top-section">
             <span class="initials">
-              {{selectedContact.fName.charAt(0)}}{{selectedContact.lName.charAt(0)}}
+              {{initials}}
             </span>
             <h3>{{selectedContact.fName}} {{selectedContact.lName}}</h3>
             <div class="call">
