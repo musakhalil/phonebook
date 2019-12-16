@@ -43,3 +43,6 @@ Connector/ODBC   | 5.3.14
 * Import and inject ApiService into the components
 
 Run 'ng serve' for a dev server. Navigate to the localhost link shown in the cmd to test the application
+
+## Notes
+* If you are copying the files from the repsitory, run npm install after getting the project locally so it would install the needed modules so the project would run without any problems
