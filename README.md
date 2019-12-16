@@ -24,9 +24,9 @@ Connector/ODBC   | 5.3.14
 * Add response headers and the allowed methods to connection file
 * Serve your backend application using the built-in development server: php -S 127.0.0.1:8080 -t backend
 * Create database and Contacts table to store the contacts of phonebook in using the below lines:
-  *CREATE database phbk_phonebook;
-  *USE phbk_phonebook;
-  *CREATE TABLE phbk_contacts( ID int not null auto_increment, fName varchar(50), lName varchar(50), Phone varchar(20), primary key(ID));
+  * CREATE database phbk_phonebook;
+  * USE phbk_phonebook;
+  * CREATE TABLE phbk_contacts( ID int not null auto_increment, fName varchar(50), lName varchar(50), Phone varchar(20), primary key(ID));
 * Create Angular project using command line: ng new frontend
   * Confirm using routing, then choose LESS
 * Install bootstrap & ngx bootstrap: npm install ngx-bootstrap bootstrap --save
