@@ -42,4 +42,4 @@ Connector/ODBC   | 5.3.14
 * Add Components to the Router
 * Import and inject ApiService into the components
 
-Run 'ng serve' for a dev server. Navigate to 'http://localhost:4200/' to test the application
+Run 'ng serve' for a dev server. Navigate to the localhost link shown in the cmd to test the application
